@@ -1,0 +1,32 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Set things up
+
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+
+Now suck in some data
+
+```{r}
+DF <- read.csv(here("Data", "data_types_exercise.csv"), stringsAsFactors = TRUE)
+DF2 <-read.csv(here("Data", "data_types_exercise.csv"),stringsAsFactors = TRUE)
+str(DF)
+str(DF2)
+```
+
+
+
+
+
+
+
+
+
+

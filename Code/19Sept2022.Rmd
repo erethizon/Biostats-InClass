@@ -1,0 +1,39 @@
+---
+title: "19Sept2022"
+author: "Erika"
+date: "9/19/2022"
+output: html_document
+---
+
+Let's practice pulling in some data
+
+But first, let's set things up
+
+```{r}
+rm(list = ls()) #clear R's brain
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+ Let's use the import dataset GUI
+ 
+ Paste the content from the preview window
+```{r}
+library(readr)
+compensation <- read_csv("~/Biostatistics F22/Barthelmess-InClass/Data/compensation.csv")
+```
+
+ Now try another way using `here()` package
+ 
+```{r}
+nasty <- read.csv(here("Data", "nasty format.csv"))
+```
+ 
+
+
+
+
+
+
+
+

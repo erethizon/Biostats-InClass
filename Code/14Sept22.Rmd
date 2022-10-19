@@ -1,0 +1,27 @@
+---
+title: "14 September 2022 - Getting Data into R"
+output: html_notebook
+---
+
+## Overview
+Below we will practice several ways of getting data into R
+
+But first, let's add a standard code block that we will put at the start of all of our .Rmd files.
+
+```{r}
+rm(list = ls()) #clear R's memory
+```
+
+### Method 1
+Let's use the GUI to import the fake museum data.
+
+When I don't copy and paste the code preview information when using the GUI to import data, there is no record of where the data came from.
+
+A better choice is to copy and add a code block with the data path.
+
+```{r}
+library(readr) #turns on readr package
+DF <- read_csv("~/Biostatistics F22/Barthelmess-InClass/Data/fake_museum_data.csv") #specifies file path to data
+#View(DF) #opens data in a new window
+```
+

@@ -1,0 +1,89 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Set things up
+
+```{r}
+rm(list = ls()) #clear R's brain
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+
+Now suck in some data
+
+```{r}
+DF <- read.csv(here("Data", "data_types_exercise.csv"))
+str(DF)
+```
+
+And now with stringsAsFactors = TRUE to see what that does.
+
+```{r}
+DF2 <-read.csv(here("Data", "data_types_exercise.csv"),stringsAsFactors = TRUE)
+
+str(DF2)
+```
+
+Let's create some non-data-frame data
+
+```{r}
+dogs<-c("Gus", "Tulip", "Emma", "Tex")
+```
+
+Make another variable called temps
+```{r}
+temps <- c(-15.2, 0.0, 3.8, -18.0, 1.5)
+```
+Can I use the str() function outside of a data frame?
+
+```{r}
+str(temps)
+str(DF)
+```
+Now let's make a single variable data frame
+```{r}
+cats <- as.data.frame(c("Dewey", "Silver", "Bandon"))
+str(cats)
+```
+
+How do we access certain columns of a dataframe?
+Remember that $? Let's use it!
+
+```{r}
+#display the dogs variable
+dogs
+#display the Majors variable in the DF dataframe
+DF$Majors
+```
+How do I access specific values from a data frame?
+
+Let's make a small easy to use dataframe using cbind
+
+```{r}
+Farenheit <- c(70.3, 86.7, 42.5)
+Centegrade <- c(20.6, 34.2, 17.1)
+Places <- c("Canton", "Potsdam", "Madrid")
+```
+Now put them together into a new dataframe using cbind
+```{r}
+MyData <-as.data.frame(cbind(Centegrade, Farenheit, Places))
+```
+
+Now use indexing to find values
+
+```{r}
+MyData[2, 1]
+MyData[1,3]
+MyData[2,]
+MyData[,3]
+MyData$Places
+MyData[2,1:2]
+```
+
+
+
+
+

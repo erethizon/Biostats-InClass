@@ -1,0 +1,16 @@
+---
+title: "Learning reproducible workflows"
+output: html_notebook
+---
+
+## Introduction 
+Today in class we're learning to use Rmarkdown to differentate scientific thinking from commenting our code. 
+
+Now we will learn to pull data into R.
+
+```{r}
+#pull in the data
+library(readr)
+tree_data <- read_csv("Data/tree_data.csv")
+```
+

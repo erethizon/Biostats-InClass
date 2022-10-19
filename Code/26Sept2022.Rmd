@@ -1,0 +1,14 @@
+---
+title: "In Class 26 Sept 2022
+output: html_notebook
+---
+
+```{r}
+grades <- c(90,94,96,90,84,86)
+summary(grades)
+quantile(grades, probs = c(0, 0.25, 0.5, 0.75, 1))
+quantile(grades, probs = c(0, 0.33, 0.67, 1))
+
+?summary
+```
+

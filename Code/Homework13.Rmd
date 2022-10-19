@@ -1,0 +1,53 @@
+---
+title: "Homework 13 - applying dplyr"
+output: html_notebook
+---
+
+This is the key to Homework 13, which asked you to apply dplyr to a "messy" dataset so that you can begin to envision how we might use some of these dplyr functions to clean up a data set.
+
+Set up the workspace
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+
+Now pull in the data
+```{r}
+DF<-read.csv(here("Data", "day_one_data_for_homework13.csv" ))
+View(DF)
+```
+
+Scroll through the data. Notice what happened to the column names that have spaces and the column that had a # in the column name in the .csv.  How did R change them?
+
+- R added a `.` to the names that included a space. The `.` replaced the space. 
+- For the column that had a # symbol in the .csv (Tree #), R changed the column name to `Tree..`
+
+Use the names() function (hint - chapter 2) to change the column names to, in order from left to right: Name, Date, Part, Tree_num, Species, leaf_length, leaf_width, leaf_units
+
+
+```{r}
+names(DF)<- c("Name", "Date", "Part", "Tree_num", "Species", "leaf_length", "leaf_width","leaf_units" )
+```
+
+Notice that some of the leaf measurements are in inches, and some are in metric units. Write code that selects just the rows of data that are in English units (inches) and that saves them to a new data frame called "English"
+
+```{r}
+English <- DF %>% filter(leaf_units == "inches")
+```
+
+Now notice that the dates have been entered in several formats, and that for one person, the years associated with the dates are incorrect. Write code that collects the data from five individuals who formatted their dates in the most common pattern together into a single data frame and call it "Uniform_dates"
+
+```{r}
+Uniform_dates <- filter(DF, Name == "Gwen Cunningham" | Name == "Trent Meyer" | Name == "Olivia Bernier" | Name == "May Buckingham" | Name == "Anna Wilke")
+```
+
+Now try another way
+```{r}
+Names <-DF$Name
+unique(Names)
+
+Uniform_dates <- DF %>% filter (Name %in% c("Gwen Cunningham", "Trent Meyer", "Olivia Bernier", "May Buckingham","Anna Wilke" ))
+```
+
