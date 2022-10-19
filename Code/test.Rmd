@@ -4,3 +4,6 @@ output: html_notebook
 ---
 
 Testing a merge conflict
+
+Here is a test file to create a merge conflict
+
