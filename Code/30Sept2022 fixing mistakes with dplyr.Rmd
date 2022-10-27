@@ -1,0 +1,122 @@
+---
+title: "30 September 2022 - Fixing data problems"
+output: html_notebook
+---
+
+For homework you worked with a dataset in which there were mistakes in data entry. Here we'll try to fix them.
+
+Set things up and pull in the data
+
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+library(here)
+DF<-read.csv(here("Data", "day_one_data_for_homework13.csv"))
+```
+Let's start by summarizing the data
+```{r}
+summary(DF)
+```
+## Problem 1 leaf measurements
+We can see that leaf measurements are in inches as wells as metric units. Let's fix that.
+
+We need a way to convert the english measurements. There is NOT an easy way to do this that could be automated if you had too much data. If the data had been entered as numeric it would be possible.
+
+Here, we will do some calculations based on what we can see and go from there
+First, grab the data:
+```{r}
+to_fix<-DF %>% filter(leaf_units == "inches") %>% select(c(Leaf.length, leaf.width))
+```
+Now let's add two new variables to this data frame by converting each measurement to a decimal (by hand or on paper)
+
+```{r}
+to_fix <-to_fix %>% mutate(leaf_length_numeric = c(4.125, 6.938, 4.5, 3.75, 6))
+to_fix <-to_fix %>% mutate(leaf_width_numeric = c(3.938, 6.5, 6.125,3.0, 2.5))
+```
+
+And now convert to cm
+```{r}
+to_fix <- to_fix %>% mutate(leaf_length_cm = leaf_length_numeric*2.54,
+                            leaf_width_cm = leaf_width_numeric*2.54)
+```
+Now we can put those values into DF in the corresponding rows of Leaf.length and leaf.width in DF. We'll using indexing to see how that works.
+
+```{r}
+DF$Leaf.length[1:5]<-to_fix$leaf_length_cm[1:5]
+DF$leaf.width[1:5]<-to_fix$leaf_width_cm[1:5]
+```
+Now let's just change the units for those rows so that we know we've converted them.
+
+```{r}
+DF$leaf_units[1:5]<- "cm"
+```
+Now our last step is to make leaf length and leaf width numeric variables
+```{r}
+DF$Leaf.length <- as.numeric(DF$Leaf.length)
+DF$leaf.width <- as.numeric(DF$leaf.width)
+```
+
+## Problem 2 - Tree species
+We can see that tree species have been entered all over the place. Let's take a look and fix it.
+
+```{r}
+unique(DF$Tree.species)
+```
+
+Let's rename anything with "maple" as "maple species", anything with "birch" as "birch species", anything with "oak" as "oak species" and anything with "ash" as "ash species" to start.
+
+Find all the rows with maple in the name. Learn to use which to return row numbers.
+```{r}
+maples <- which(DF$Tree.species == "red maple" | DF$Tree.species == "norway maple" | DF$Tree.species == "Maple" |DF$Tree.species == "maple" | DF$Tree.species == "Red maple")
+
+DF$Tree.species[maples]<- "maple species"
+```
+
+Now oaks
+
+```{r}
+oaks <- which(DF$Tree.species == "red oak" | DF$Tree.species == "white oak" | DF$Tree.species == "Oak" |DF$Tree.species == "oak" | DF$Tree.species == "chestnut oak" |DF$Tree.species == "White oak" | DF$Tree.species == "burr oak")
+
+DF$Tree.species[oaks]<- "oak species"
+```
+
+Now birches
+```{r}
+birches <- which(DF$Tree.species == "paper birch" | DF$Tree.species == "birch" | DF$Tree.species == "Paper birch" |DF$Tree.species == "Silver birch" | DF$Tree.species == "silver birch" |DF$Tree.species == "Birch" | DF$Tree.species == "Paper birch ")
+
+DF$Tree.species[birches]<- "birch species"
+unique(DF$Tree.species)
+```
+Now ashes
+
+```{r}
+ash <- which(DF$Tree.species == "Ash?" | DF$Tree.species == "Green ash" )
+
+DF$Tree.species[ash]<- "ash species"
+unique(DF$Tree.species)
+```
+Now we just need to fix the two different spellings of crabapple and deal with the one tree whose species is ""
+
+```{r}
+fix <- which(DF$Tree.species == "crabapple" )
+
+DF$Tree.species[fix]<- "crab apple"
+unique(DF$Tree.species)
+```
+```{r}
+fix <- which(DF$Tree.species == "" )
+
+DF$Tree.species[fix]<- NA
+unique(DF$Tree.species)
+```
+
+
+
+
+
+
+
+
+
+

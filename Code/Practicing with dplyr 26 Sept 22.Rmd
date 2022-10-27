@@ -1,0 +1,52 @@
+---
+title: "Practicing with dplyr"
+output: html_notebook
+---
+
+Set things up
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+
+Pull in the data
+
+```{r}
+DF <-read.csv(here("Data", "tomato_data.csv"), stringsAsFactors = TRUE)
+```
+
+Grab just the number of flowers column
+```{r}
+select(DF, Num_flowers)
+```
+Get 3rd through 8th rows of data
+```{r}
+slice(DF, 3:8)
+```
+Get just the control data
+```{r}
+filter(DF, Treatment == "Control")
+```
+Use piping to do the following:
+
+Create a new variable called "big_toms" that returns a data frame consisting of a single column of only the plant numbers from plants that produced fruit with a mean weight of 150 g or more
+```{r}
+big_toms<-DF %>% filter(Avg_tomato_weight_g >=150) %>% select(Plant_number)
+```
+
+Use group_by and summarize to determine the mean number of flower produced in the control and treatment groups
+```{r}
+DF %>% group_by(Treatment) %>% summarize(meanFlowers = mean(Num_flowers))
+```
+Use group_by and summarize to determine the mean and standard deviation in mean fruit size (grams) between control and fertilized plants
+
+```{r}
+TomatoSizes <- DF %>% group_by(Treatment) %>% summarize(
+  meanSizeGrams = mean(Avg_tomato_weight_g),
+  sdSizeGrams = sd(Avg_tomato_weight_g)
+)
+```
+
+

@@ -1,0 +1,78 @@
+---
+title: "More practice with dplyr - 28 Sept 2022"
+output: html_notebook
+---
+## Getting started
+Set up the file with the now "usual" lines of code and then write code that reads in the data file and places the data in an object named Tb.
+
+Set up the workspace
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+Now pull in the data and call it Tb
+
+```{r}
+Tb <- read.csv(here("Data", "TB_dr_surveillance_subset.csv"), stringsAsFactors = TRUE)
+```
+## Erika's aside about NAs
+
+```{r}
+nums <- c(5, 3, 18, NA, 6)
+mean(nums) #returns NA
+mean(nums,na.rm = T) #calculates the mean of the non-NAs
+sum(nums)
+```
+
+
+## Working with dplyr
+
+Use the select, slice, filter, and mutate dplyr functions to do each of the following:
+
+1. Create a new dataframe called Africa that just has the observations from the African WHO region
+
+```{r}
+Africa <-filter(Tb, g_whoregion == "AFR")
+```
+
+2. Without creating a new dataframe, return only the column of data indicating the number of new multidrug resistant Tb cases detected in the Americas.
+
+```{r}
+Tb %>% filter(g_whoregion== "AMR") %>% select(mdr_new)
+```
+3. Create a new data frame that includes the country name, number of new confirmed pulmonary Tb cases and the number of multidrug resistant cases from Southeast Asia and the Western Pacific for the year 2020. As an extra challenge, see if you can do it with one continuous line of code (I'd suggest you use piping).
+
+```{r}
+Cases <- Tb %>% filter(year == 2020 & (g_whoregion == "SEA" | g_whoregion == "WPR")) %>% select(c(country, pulm_labconf_new, mdr_new))
+```
+
+## Practicing group_by and summarise
+
+Using a combination of group_by and summarise, with or without piping as you prefer, please do the following:
+
+1. Create a new dataframe that shows the average number of new pulmonary cases of Tb by WHO Region.
+
+```{r}
+Tb_by_Region <- Tb %>% group_by(g_whoregion) %>% summarise(
+  AvgCases = mean(pulm_labconf_new, na.rm = T),
+  sdCases = sd(pulm_labconf_new, na.rm = T)
+)
+```
+
+2. Without creating a new dataframe, display a summary table that shows the average number of multi-drug resistant cases of Tb by year.
+
+```{r}
+Tb %>% group_by(year) %>% summarise(
+  AvgMDR = mean(mdr_new, na.rm = T)
+)
+```
+
+3. Create a new dataframe that shows the maximum number of extremely drug resistant (xdr) cases of Tb by year and WHO region. 
+```{r}
+VeryResistant <- Tb %>% group_by(year, g_whoregion) %>% summarise(
+  MaxXDR = max(xdr, na.rm = T)
+)
+```
+
