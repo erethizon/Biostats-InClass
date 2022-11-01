@@ -1,0 +1,84 @@
+---
+title: "In Class 31 Oct 2022"
+author: "Erika Barthelmess"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+We are working on exploratory data analysis using the data analysis workflow demonstrated in class.
+
+Today in class students are using the soil_subset_outliers data set. Their first task is to:
+
+1. Identify the types of variables in the dataset
+
+2. Describe and visualize central tendency and dispersion
+
+3. Identify any outliers and decide how to deal with them.
+
+Let's get started:
+```{r}
+rm(list = ls())
+library(ggplot2)
+library(dplyr)
+library(here)
+
+DF<-read.csv(here("Data", "soil_subset_outliers.csv"))
+```
+Let's begin by getting some summary statistics
+```{r}
+summary(DF)
+```
+Immediately I see that some variables are coming in as character that I'd like as factor. Let's fix that.
+
+```{r}
+DF$Forest<-as.factor(DF$Forest)
+DF$Plot<-as.factor(DF$Plot)
+DF$Sample<-as.factor(DF$Sample)
+```
+Now let's get the boxplots and histograms for the data
+
+```{r}
+DF %>% ggplot(aes(x = Organic.Matter..))+
+     geom_histogram()
+```
+```{r}
+DF %>% ggplot(aes(x = Nitrate.N.ppm))+
+     geom_histogram()
+```
+Next
+```{r}
+DF %>% ggplot(aes(x = Base.Saturation.Ca))+
+     geom_histogram()
+```
+```{r}
+DF %>% ggplot(aes(x = Base.Saturation.Mg))+
+     geom_histogram()
+```
+
+```{r}
+DF %>% ggplot(aes(x = Base.Saturation.K))+
+     geom_histogram()
+```
+```{r}
+DF %>% ggplot(aes(x = Base.Saturation.Na))+
+     geom_histogram()
+```
+```{r}
+DF %>% ggplot(aes(x = Base.Saturation.H))+
+     geom_histogram()
+```
+
+```{r}
+DF %>% ggplot(aes(x = Base.Saturation.Total))+
+     geom_histogram()
+```
+```{r}
+DF %>% ggplot(aes(x = Exch.Acidity))+
+     geom_histogram()
+```
+```{r}
+DF %>% ggplot(aes(x = Buffer.pH))+
+     geom_histogram()
+```
+
+
