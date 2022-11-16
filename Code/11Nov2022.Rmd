@@ -1,0 +1,110 @@
+---
+title: "9 November 2022"
+author: "Erika"
+date: "11/9/2022"
+output: html_document
+---
+
+In class today we are going to take a look at some steps that might make some of your Cap DAP work easier:
+
+Using the tidyverse package and, in particular, noticing:
+tidyr - moving between wide and long formats
+stringr - finding and breaking up text strings
+Dealing with dates
+lubridate package
+Saving data as .csv from R
+
+Let's get started!
+
+```{r}
+rm(list=ls())
+library(tidyverse)
+library(here)
+```
+
+Pull in some data
+```{r}
+temp <- read.csv(here("Data", "temp_by_year.csv"))
+```
+
+Some issues in the data:
+1. Wide rather than long
+2. Year with an X
+3. Two variables in single plot column
+
+We need tidyr and stringr to fix
+
+Step 1 - wide to long format with tidyr
+
+```{r}
+temp_long <- pivot_longer(temp, cols = X1979:X1990,   names_to = "Year", values_to = "temp")
+```
+That worked, but introduced a new problem, which is that each year starts with X and thus can't be converted to a date. So, how do we get rid of the X?
+
+One way that we have already learned is with `which`
+
+For example:
+```{r}
+Years<-unique(temp_long$Year)
+fix<-which(temp_long$Year == "X1979")
+```
+But let's look at a different way with stringr
+
+There are multiple ways you could do this:
+`str_replace`
+`str_remove`
+`str_split`
+
+```{r}
+temp_long1 <- str_replace(temp_long$Year, "X", "")
+
+temp_long$newYear <- temp_long1
+```
+Now save the data frame
+
+```{r}
+write.csv(temp_long, here("Data", "Processed", "correct_temp_by_yearX.csv"))
+
+write.csv(temp_long, here("Data", "Processed", "correct_temp_by_year.csv"), row.names = FALSE)
+```
+
+Let's make yet another year column to play with
+```{r}
+temp_long$Year3<-temp_long$newYear
+```
+
+Now make newYear into integer
+```{r}
+temp_long$newYear <- as.integer(temp_long$newYear)
+```
+Now let's convert Year3 into a date.
+
+Use package lubridate
+
+```{r}
+library(lubridate)
+```
+Let's arbitrailty make year into 1/1/year
+
+use `paste0` function
+
+```{r}
+temp_long$Year3 <- paste0("01-01-",temp_long$Year3)
+```
+Now let's try to make it a date
+
+```{r}
+temp_long$Year3 <- mdy(temp_long$Year3)
+```
+
+
+
+
+
+
+
+
+
+
+
+
