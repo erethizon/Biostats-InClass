@@ -1,0 +1,119 @@
+---
+title: "16Nov2022-ANOVA"
+author: "Erika"
+date: "2022-11-16"
+output: html_document
+---
+
+Let's do a two-way ANOVA
+
+```{r}
+rm(list =ls())
+library(tidyverse)
+library(ggfortify)
+library(here)
+```
+
+And now pull in some data about growth in cows
+
+```{r}
+DF <- read.csv(here("Data", "growth.csv"))
+```
+Cows were fed one of three diets (barley, oats, wheat) and the diets were enhanced with one of 4 supplements (control and a bunch of names). Each combination of diet and supplement were replicated.
+
+
+Look at the data
+```{r}
+glimpse(DF)
+```
+
+So two of our variables are categorical: supplement and diet
+
+Let's convert them to factor and check their levels
+```{r}
+DF$supplement <- as.factor(DF$supplement)
+DF$diet <- as.factor(DF$diet)
+
+levels(DF$supplement)
+levels(DF$diet)
+```
+
+We'd like the control to be the reference factor, so let's relevel
+```{r}
+DF<- mutate(DF, supplement = relevel(supplement, ref = "control"))
+levels(DF$supplement)
+```
+
+We need to look at the mean and growth rate of each of the combiations, so use group by and summarise
+
+```{r}
+sumDF <- DF %>% group_by(diet, supplement) %>% summarise(meanGrow = mean(gain))
+```
+
+Now let's make an interaction plot
+
+Think about this statement: *the efffect of supplement type on cow weight gain depends on the diet*
+
+```{r}
+ggplot(sumDF, aes(supplement, meanGrow))+
+     geom_point()+
+     theme_bw()
+```
+Now let's connect the dots!
+
+Modify our ggplot thusly:
+```{r}
+ggplot(sumDF, aes(supplement, meanGrow, color = diet, group = diet))+
+     geom_point()+
+     geom_line()+
+     theme_bw()
+```
+Now create the model
+
+```{r}
+model_cow <-lm(gain ~ diet*supplement, data = DF)
+```
+And check assumptions
+```{r}
+autoplot(model_cow, smooth.color = NA)
+```
+Now look at the model
+
+```{r}
+anova(model_cow)
+```
+
+
+And look at the summary
+
+```{r}
+summary(model_cow)
+```
+
+And now make our final plot
+
+First get some different values for the plot
+```{r}
+sumDF<-DF %>% group_by(diet, supplement) %>% summarise(
+     meanGrow = mean(gain),
+     seGrow = sd(gain)/sqrt(n())#watch out for NAs and see next code block for a better version
+)
+```
+
+```{r}
+sumDF<-DF %>% group_by(diet, supplement) %>% summarise(
+     meanGrow = mean(gain),
+     seGrow = sd(gain)/sqrt(sum(!is.na(gain)))#There! Much better version
+)
+```
+
+Now we can make our figure better:
+```{r}
+ggplot(sumDF, aes(supplement, meanGrow, color = diet, group = diet))+
+     geom_point()+
+     geom_line()+
+     geom_errorbar(aes(ymin = meanGrow - seGrow,
+                       ymax = meanGrow + seGrow), width = 0.1)+
+     theme_bw()
+```
+
