@@ -1,0 +1,49 @@
+---
+title: "HerpData"
+output: html_document
+date: "2022-11-01"
+---
+
+Let's take a look at some herp data from a LTER site
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+library(dplyr)
+library(ggfortify)
+library(here)
+
+herps <- read.csv(here("Data", "herp_data.csv"), stringsAsFactors = TRUE)
+```
+Now look at the data
+```{r}
+glimpse(herps)
+```
+Now let's organize by Urbanized vs Non-Urban and Restored vs. NotRestored
+
+```{r}
+org_herps<-herps %>% group_by(restored, herp_type) %>% summarize(total_herps = sum(quantity))
+```
+
+Now add a zero to replace the NA for the count of lizards in the not restored habitat
+
+```{r}
+org_herps$total_herps[2] <- 0
+```
+
+Now plot the data
+```{r}
+ggplot(org_herps, aes(restored, total_herps, fill = herp_type))+
+    geom_bar(stat = "identity", position = "dodge")
+```
+It looks like restoring habitat is particularly effective for lizards
+
+```{r}
+herp.mat <- xtabs(total_herps ~ restored + herp_type, data = org_herps)
+herp.mat
+```
+Now we can run the X2 test:
+```{r}
+chisq.test(herp.mat)
+```
+

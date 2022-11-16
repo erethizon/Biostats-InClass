@@ -1,0 +1,192 @@
+reach,urbanized,restored,water,observation_date,common_name,herp_type,lizard_or_not,quantity
+Rio,Urban,Restored,Perennial,4/8/12,American Bullfrog,frog,not lizard,1
+Price,Urban,NotRestored,Perennial,4/29/12,American Bullfrog,frog,not lizard,3
+Priest,Urban,NotRestored,Perennial,6/10/12,American Bullfrog,frog,not lizard,1
+Price,Urban,NotRestored,Perennial,6/12/12,American Bullfrog,frog,not lizard,3
+Rio,Urban,Restored,Perennial,6/13/12,American Bullfrog,frog,not lizard,1
+Rio,Urban,Restored,Perennial,3/13/13,American Bullfrog,frog,not lizard,3
+Price,Urban,NotRestored,Perennial,9/24/16,American Bullfrog,frog,not lizard,10
+Priest,Urban,NotRestored,Perennial,9/25/16,American Bullfrog,frog,not lizard,5
+Tonto,NonUrban,NotRestored,Perennial,5/11/17,American Bullfrog,frog,not lizard,2
+Rio,Urban,Restored,Perennial,5/18/17,American Bullfrog,frog,not lizard,5
+BM,Urban,Restored,Perennial,5/22/17,American Bullfrog,frog,not lizard,4
+Price,Urban,NotRestored,Perennial,5/23/17,American Bullfrog,frog,not lizard,4
+Priest,Urban,NotRestored,Perennial,5/24/17,American Bullfrog,frog,not lizard,2
+BM,Urban,Restored,Perennial,6/15/17,American Bullfrog,frog,not lizard,3
+Tonto,NonUrban,NotRestored,Perennial,6/16/17,American Bullfrog,frog,not lizard,1
+Price,Urban,NotRestored,Perennial,6/22/17,American Bullfrog,frog,not lizard,3
+Rio,Urban,Restored,Perennial,6/29/17,American Bullfrog,frog,not lizard,9
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,American Bullfrog,frog,not lizard,1
+Rio,Urban,Restored,Perennial,9/25/17,American Bullfrog,frog,not lizard,19
+BM,Urban,Restored,Perennial,10/2/17,American Bullfrog,frog,not lizard,2
+Price,Urban,NotRestored,Perennial,6/19/20,American Bullfrog,frog,not lizard,1
+BM,Urban,Restored,Perennial,6/25/20,American Bullfrog,frog,not lizard,1
+Rio,Urban,Restored,Perennial,7/2/20,American Bullfrog,frog,not lizard,3
+Rio,Urban,Restored,Perennial,9/23/20,American Bullfrog,frog,not lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/24/20,American Bullfrog,frog,not lizard,1
+BM,Urban,Restored,Perennial,5/4/22,American Bullfrog,frog,not lizard,1
+Rio,Urban,Restored,Perennial,5/5/22,American Bullfrog,frog,not lizard,1
+Rio,Urban,Restored,Perennial,6/7/22,American Bullfrog,frog,not lizard,1
+BM,Urban,Restored,Perennial,6/16/22,American Bullfrog,frog,not lizard,1
+Rio,Urban,Restored,Perennial,6/13/12,Checkered Gartersnake,snake,not lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/18/16,Common Kingsnake,snake,not lizard,1
+Rio,Urban,Restored,Perennial,5/18/17,Common Kingsnake,snake,not lizard,1
+Price,Urban,NotRestored,Perennial,6/22/17,Common Kingsnake,snake,not lizard,1
+Tonto,NonUrban,NotRestored,Perennial,3/25/12,Common Side-blotched Lizard,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,6/10/12,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,6/14/12,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,3/13/13,Common Side-blotched Lizard,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,3/18/13,Common Side-blotched Lizard,lizard,is lizard,2
+Rio,Urban,Restored,Perennial,9/17/16,Common Side-blotched Lizard,lizard,is lizard,2
+Ave35,Urban,NotRestored,Ephemeral,9/18/16,Common Side-blotched Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,9/19/16,Common Side-blotched Lizard,lizard,is lizard,2
+BM,Urban,Restored,Perennial,9/28/16,Common Side-blotched Lizard,lizard,is lizard,2
+BM,Urban,Restored,Perennial,9/28/16,Common Side-blotched Lizard,lizard,is lizard,33
+Tonto,NonUrban,NotRestored,Perennial,9/29/16,Common Side-blotched Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,5/22/17,Common Side-blotched Lizard,lizard,is lizard,6
+BM,Urban,Restored,Perennial,6/15/17,Common Side-blotched Lizard,lizard,is lizard,3
+BM,Urban,Restored,Perennial,6/15/17,Common Side-blotched Lizard,lizard,is lizard,2
+BM,Urban,Restored,Perennial,6/15/17,Common Side-blotched Lizard,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,6/24/17,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,6/29/17,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,6/29/17,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,6/29/17,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,Common Side-blotched Lizard,lizard,is lizard,2
+Ave67,Urban,NotRestored,Ephemeral,7/2/17,Common Side-blotched Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,7/2/17,Common Side-blotched Lizard,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Common Side-blotched Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,9/25/17,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/28/17,Common Side-blotched Lizard,lizard,is lizard,2
+Ave67,Urban,NotRestored,Ephemeral,9/29/17,Common Side-blotched Lizard,lizard,is lizard,2
+Ave67,Urban,NotRestored,Ephemeral,9/29/17,Common Side-blotched Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,10/2/17,Common Side-blotched Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,10/2/17,Common Side-blotched Lizard,lizard,is lizard,12
+Price,Urban,NotRestored,Perennial,10/3/17,Common Side-blotched Lizard,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,10/5/17,Common Side-blotched Lizard,lizard,is lizard,3
+Tonto,NonUrban,NotRestored,Perennial,6/22/20,Common Side-blotched Lizard,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,9/29/20,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/17/21,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,5/5/22,Common Side-blotched Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,6/7/22,Common Side-blotched Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,4/15/12,Desert Iguana,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/14/13,Desert Iguana,lizard,is lizard,3
+Ave35,Urban,NotRestored,Ephemeral,5/17/17,Desert Iguana,lizard,is lizard,2
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,Desert Iguana,lizard,is lizard,2
+BM,Urban,Restored,Perennial,4/22/12,Desert Spiny Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,5/22/17,Desert Spiny Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,7/2/17,Desert Spiny Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/24/20,Desert Spiny Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,5/4/22,Gopher Snake,snake,not lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Long-tailed Brush Lizard,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,6/27/19,Mediterranean House Gecko,lizard,is lizard,NA
+Ave35,Urban,NotRestored,Ephemeral,9/28/19,Mediterranean House Gecko,lizard,is lizard,NA
+Ave35,Urban,NotRestored,Ephemeral,6/10/22,Mediterranean House Gecko,lizard,is lizard,1
+BM,Urban,Restored,Perennial,4/22/12,Ornate Tree Lizard,lizard,is lizard,2
+Rio,Urban,Restored,Perennial,6/13/12,Ornate Tree Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,3/12/13,Ornate Tree Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,9/17/16,Ornate Tree Lizard,lizard,is lizard,2
+BM,Urban,Restored,Perennial,9/28/16,Ornate Tree Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,10/2/17,Ornate Tree Lizard,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,8/13/21,Ornate Tree Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,6/29/17,Painted Turtle,turtle,not lizard,1
+Rio,Urban,Restored,Perennial,9/27/22,Painted Turtle,turtle,not lizard,1
+Rio,Urban,Restored,Perennial,9/17/16,Pond Slider,turtle,not lizard,1
+Rio,Urban,Restored,Perennial,9/25/17,Pond Slider,turtle,not lizard,5
+Rio,Urban,Restored,Perennial,7/2/20,Pond Slider,turtle,not lizard,3
+Rio,Urban,Restored,Perennial,9/23/20,Pond Slider,turtle,not lizard,1
+Rio,Urban,Restored,Perennial,9/27/22,Pond Slider,turtle,not lizard,1
+Rio,Urban,Restored,Perennial,5/12/14,Spiny Softshell,turtle,not lizard,2
+Rio,Urban,Restored,Perennial,9/25/17,Spiny Softshell,turtle,not lizard,1
+Rio,Urban,Restored,Perennial,9/27/22,Spiny Softshell,turtle,not lizard,2
+Tonto,NonUrban,NotRestored,Perennial,3/25/12,Tiger Whiptail ,lizard,is lizard,4
+Price,Urban,NotRestored,Perennial,4/29/12,Tiger Whiptail ,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,6/10/12,Tiger Whiptail ,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,3/13/13,Tiger Whiptail ,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,9/17/16,Tiger Whiptail ,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/18/16,Tiger Whiptail ,lizard,is lizard,1
+BM,Urban,Restored,Perennial,9/28/16,Tiger Whiptail ,lizard,is lizard,3
+BM,Urban,Restored,Perennial,9/28/16,Tiger Whiptail ,lizard,is lizard,4
+Tonto,NonUrban,NotRestored,Perennial,9/29/16,Tiger Whiptail ,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/29/16,Tiger Whiptail ,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,5/18/17,Tiger Whiptail ,lizard,is lizard,7
+BM,Urban,Restored,Perennial,5/22/17,Tiger Whiptail ,lizard,is lizard,13
+BM,Urban,Restored,Perennial,6/15/17,Tiger Whiptail ,lizard,is lizard,3
+Rio,Urban,Restored,Perennial,6/29/17,Tiger Whiptail ,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Tiger Whiptail ,lizard,is lizard,2
+Rio,Urban,Restored,Perennial,9/25/17,Tiger Whiptail ,lizard,is lizard,3
+Tonto,NonUrban,NotRestored,Perennial,6/22/20,Tiger Whiptail ,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,7/2/20,Tiger Whiptail ,lizard,is lizard,2
+BM,Urban,Restored,Perennial,10/2/20,Tiger Whiptail ,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,8/13/21,Tiger Whiptail ,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/17/21,Tiger Whiptail ,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/22/21,Tiger Whiptail ,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,5/5/22,Tiger Whiptail ,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,5/6/22,Tiger Whiptail ,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,6/20/22,Tiger Whiptail ,lizard,is lizard,3
+Rio,Urban,Restored,Perennial,9/27/22,Tiger Whiptail ,lizard,is lizard,2
+Priest,Urban,NotRestored,Perennial,3/11/12,Unidentified Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,4/15/12,Unidentified Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,6/14/12,Unidentified Lizard,lizard,is lizard,2
+Ave35,Urban,NotRestored,Ephemeral,3/12/13,Unidentified Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,3/13/13,Unidentified Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,3/18/13,Unidentified Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,3/18/13,Unidentified Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,6/11/13,Unidentified Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,6/11/13,Unidentified Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,9/17/16,Unidentified Lizard,lizard,is lizard,2
+Ave35,Urban,NotRestored,Ephemeral,9/18/16,Unidentified Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,9/19/16,Unidentified Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,9/28/16,Unidentified Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,5/11/17,Unidentified Lizard,lizard,is lizard,3
+Ave35,Urban,NotRestored,Ephemeral,5/17/17,Unidentified Lizard,lizard,is lizard,2
+BM,Urban,Restored,Perennial,5/22/17,Unidentified Lizard,lizard,is lizard,1
+Priest,Urban,NotRestored,Perennial,5/24/17,Unidentified Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,6/15/17,Unidentified Lizard,lizard,is lizard,3
+BM,Urban,Restored,Perennial,6/15/17,Unidentified Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,6/15/17,Unidentified Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,6/29/17,Unidentified Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,Unidentified Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,7/2/17,Unidentified Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Unidentified Lizard,lizard,is lizard,1
+Rio,Urban,Restored,Perennial,9/25/17,Unidentified Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/28/17,Unidentified Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,10/2/17,Unidentified Lizard,lizard,is lizard,5
+Rio,Urban,Restored,Perennial,3/13/13,Unidentified Toad,frog,not lizard,1
+Rio,Urban,Restored,Perennial,5/12/14,Unidentified Turtle,turtle,not lizard,1
+BM,Urban,Restored,Perennial,6/16/16,Unidentified Turtle,turtle,not lizard,1
+BM,Urban,Restored,Perennial,6/16/16,Unidentified Turtle,turtle,not lizard,1
+Ave35,Urban,NotRestored,Ephemeral,4/15/12,Western Banded Gecko,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,9/24/20,Western Diamond-backed Rattlesnake,snake,not lizard,1
+Tonto,NonUrban,NotRestored,Perennial,5/6/22,Western Diamond-backed Rattlesnake,snake,not lizard,1
+Ave35,Urban,NotRestored,Ephemeral,9/18/16,Woodhouse’s Toad,frog,not lizard,1
+Rio,Urban,Restored,Perennial,5/18/17,Woodhouse’s Toad,frog,not lizard,6
+Tonto,NonUrban,NotRestored,Perennial,3/18/13,Zebra-tailed Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,6/11/13,Zebra-tailed Lizard,lizard,is lizard,3
+Ave35,Urban,NotRestored,Ephemeral,9/18/16,Zebra-tailed Lizard,lizard,is lizard,2
+Ave67,Urban,NotRestored,Ephemeral,9/19/16,Zebra-tailed Lizard,lizard,is lizard,2
+Ave67,Urban,NotRestored,Ephemeral,9/19/16,Zebra-tailed Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,9/28/16,Zebra-tailed Lizard,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,9/29/16,Zebra-tailed Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,5/15/17,Zebra-tailed Lizard,lizard,is lizard,1
+Ave35,Urban,NotRestored,Ephemeral,5/17/17,Zebra-tailed Lizard,lizard,is lizard,2
+BM,Urban,Restored,Perennial,5/22/17,Zebra-tailed Lizard,lizard,is lizard,14
+BM,Urban,Restored,Perennial,6/15/17,Zebra-tailed Lizard,lizard,is lizard,4
+Ave35,Urban,NotRestored,Ephemeral,7/1/17,Zebra-tailed Lizard,lizard,is lizard,3
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Zebra-tailed Lizard,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,9/22/17,Zebra-tailed Lizard,lizard,is lizard,2
+Ave35,Urban,NotRestored,Ephemeral,9/28/17,Zebra-tailed Lizard,lizard,is lizard,1
+Ave67,Urban,NotRestored,Ephemeral,9/29/17,Zebra-tailed Lizard,lizard,is lizard,3
+Ave67,Urban,NotRestored,Ephemeral,9/29/17,Zebra-tailed Lizard,lizard,is lizard,8
+BM,Urban,Restored,Perennial,10/2/17,Zebra-tailed Lizard,lizard,is lizard,4
+BM,Urban,Restored,Perennial,10/2/17,Zebra-tailed Lizard,lizard,is lizard,4
+Tonto,NonUrban,NotRestored,Perennial,6/22/20,Zebra-tailed Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,6/25/20,Zebra-tailed Lizard,lizard,is lizard,2
+Tonto,NonUrban,NotRestored,Perennial,9/24/20,Zebra-tailed Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,10/2/20,Zebra-tailed Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,8/13/21,Zebra-tailed Lizard,lizard,is lizard,1
+BM,Urban,Restored,Perennial,5/4/22,Zebra-tailed Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,5/6/22,Zebra-tailed Lizard,lizard,is lizard,1
+Tonto,NonUrban,NotRestored,Perennial,6/17/22,Zebra-tailed Lizard,lizard,is lizard,1
