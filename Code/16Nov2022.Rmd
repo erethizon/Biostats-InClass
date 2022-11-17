@@ -44,7 +44,7 @@ DF<- mutate(DF, supplement = relevel(supplement, ref = "control"))
 levels(DF$supplement)
 ```
 
-We need to look at the mean and growth rate of each of the combiations, so use group by and summarise
+We need to look at the mean and growth rate of each of the combinations, so use group by and summarise
 
 ```{r}
 sumDF <- DF %>% group_by(diet, supplement) %>% summarise(meanGrow = mean(gain))
@@ -52,7 +52,7 @@ sumDF <- DF %>% group_by(diet, supplement) %>% summarise(meanGrow = mean(gain))
 
 Now let's make an interaction plot
 
-Think about this statement: *the efffect of supplement type on cow weight gain depends on the diet*
+Think about this statement: *the effect of supplement type on cow weight gain depends on the diet*
 
 ```{r}
 ggplot(sumDF, aes(supplement, meanGrow))+

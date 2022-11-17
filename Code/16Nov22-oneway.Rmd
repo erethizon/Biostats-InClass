@@ -1,0 +1,74 @@
+---
+title: "16Nov22_oneway"
+author: "Erika"
+date: "11/16/2022"
+output: html_document
+---
+
+SEt things up
+```{r}
+rm(list =ls())
+library(tidyverse)
+library(ggfortify)
+library(here)
+```
+
+Pull in the growth data
+
+```{r}
+DF <- read.csv(here("Data", "growth.csv"))
+glimpse(DF)
+```
+Convert my categorical variables to factor
+```{r}
+DF$supplement <-as.factor(DF$supplement)
+DF$diet <- as.factor(DF$diet)
+```
+Now take a look at the levels of diet
+
+```{r}
+levels(DF$diet)
+```
+Plot the data
+```{r}
+ggplot(DF, aes(diet, gain))+
+     geom_boxplot()+
+     geom_point()
+```
+
+SEt up our one-way ANOVA model
+
+```{r}
+myMod <- lm(gain ~ diet, data = DF)
+```
+
+Now check our assumptions
+
+```{r}
+autoplot(myMod, smooth.colour = NA)
+```
+
+
+
+Now we interpret our model
+```{r}
+anova(myMod)
+```
+Now look at contrasts
+```{r}
+summary(myMod)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
