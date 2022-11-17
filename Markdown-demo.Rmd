@@ -1,0 +1,56 @@
+---
+title: "R markdown features"
+author: "Erika"
+date: "2022-11-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Introduction
+R markdown is a "R-flavored" version of the markdown formatting language. We use `.Rmd` files so that we can separate our code from our thinking, which also enables us to make elegant documents/slides/presentation/publication materials.
+
+With R markdown, we can make styling decisions for our text. Here are some examples.
+
+### Example 1 - Formatting text
+
+You can use markdown to format text as **bold** or __bold__, *italic* or _italic_. You can make some text superscripted^likethistext^. You can also ~~strikethrough~~ text.  
+
+You can put [links](https://www.natureupnorth.org) in your documments and add pictures (like this one of Gus)
+
+![](Images/gus_gus.jpg)
+
+### Example 2 - Lists
+To make a bulleted list, use dashes, like so:
+
+- list item 1
+- list item 2
+- list item 3
+
+To make a numbered list, use numbers, like so:
+
+1. list item 1
+2. list item 2
+3. list item 3
