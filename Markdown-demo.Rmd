@@ -7,42 +7,31 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(tidyverse)
 ```
 
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. 
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-## Introduction
 R markdown is a "R-flavored" version of the markdown formatting language. We use `.Rmd` files so that we can separate our code from our thinking, which also enables us to make elegant documents/slides/presentation/publication materials.
 
 With R markdown, we can make styling decisions for our text. Here are some examples.
 
-### Example 1 - Formatting text
+## Styling your R markdown document
+
+### 1 - Formatting text
 
 You can use markdown to format text as **bold** or __bold__, *italic* or _italic_. You can make some text superscripted^likethistext^. You can also ~~strikethrough~~ text.  
 
-You can put [links](https://www.natureupnorth.org) in your documments and add pictures (like this one of Gus)
+You can put [links](https://www.natureupnorth.org) in your documments and add pictures (like this one of Gus) but note that if you want to point to images, you should save your master markdown file in the project root directory (the same folder that has the .Rproj file).
 
-![](Images/gus_gus.jpg)
+![](Images/gus_exam_proctor.jpg)
 
-### Example 2 - Lists
+### 2 - Lists
 To make a bulleted list, use dashes, like so:
 
 - list item 1
@@ -54,3 +43,52 @@ To make a numbered list, use numbers, like so:
 1. list item 1
 2. list item 2
 3. list item 3
+
+### 3 - Other tricks
+
+If you'd like to set something apart in the text to note that it is code, you can do so using backticks. For example, `mean()` and `sd()` are functions for determining location and range of a variable.
+
+You can also create block-quotes to emphasize text. For example, if I want to take an excerpt from [this Mary Oliver poem](https://www.poetryfoundation.org/poetrymagazine/browse?contentId=39077) and set it apart for emphasis, I can do so:
+
+> The black oaks fling their bronze fruit into all the pockets of the earth
+
+There is much, much more information about using Markdown, including how to do things like add citations, footnotes, tables, etc. etc. Check out these resources to learn more:
+
+* [RMarkdown base page](https://rmarkdown.rstudio.com/) from the folks at [Posit](https://posit.co) (formerly RStudio)
+* Here's a [markdown tutorial](https://www.markdowntutorial.com/)
+
+## Including Plots and Code
+You already know that you can embed code in your markdown document (really,the ability to do so is what makes is "R markdown") and, with code, you can therefore also embed plots. For example:
+
+```{r}
+DF <-read.csv(here("Data", "growth.csv"))
+```
+Now that we have some data, we can do things to the data frame:
+
+```{r}
+str(DF)
+```
+Sometimes we may want to hide the code chunk and only display the output from the code chunk. We can do so by adding `echo = FALSE` to the code chunk opener, as follows. You see that we get the same output, but the code chunk doesn't display:
+
+```{r, echo = FALSE}
+str(DF)
+```
+
+Likewise, we may wish to focus on the code, and not on its output. We can control whether or not output displays by adjusting the code chunk opener, as well. Compare how the following two code chunks render:
+
+Code chunk one displays the plot without the code:
+```{r, echo = FALSE}
+ggplot(DF, aes(x = diet, y = gain, color = supplement))+
+     geom_point()+
+     labs(x = "Diet", y = "Weight gain, percent")
+```
+Code chunk two displays the code without the plot:
+
+```{r echo = T,results = 'hide'}
+ggplot(DF, aes(x = diet, y = gain, color = supplement))+
+     geom_point()+
+     labs(x = "Diet", y = "Weight gain, percent")
+```
+
+
+
