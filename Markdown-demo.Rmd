@@ -2,13 +2,14 @@
 title: "R markdown features"
 author: "Erika"
 date: "2022-11-17"
-output: html_document
+output: 
+     html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(ggplot2)
 library(here)
-library(tidyverse)
 ```
 
 ## R Markdown
@@ -23,15 +24,35 @@ With R markdown, we can make styling decisions for our text. Here are some examp
 
 ## Styling your R markdown document
 
-### 1 - Formatting text
+### 1 - Heading sizes
+
+Use `#` signs to control heading size
+
+# Biggest heading!
+## Next biggest heading
+### Not quite as large a heading
+#### Smaller heading
+##### Quite small heading
+
+
+
+### 2 - Formatting text
 
 You can use markdown to format text as **bold** or __bold__, *italic* or _italic_. You can make some text superscripted^likethistext^. You can also ~~strikethrough~~ text.  
 
-You can put [links](https://www.natureupnorth.org) in your documments and add pictures (like this one of Gus) but note that if you want to point to images, you should save your master markdown file in the project root directory (the same folder that has the .Rproj file).
+You can put [links](https://www.natureupnorth.org) in your documments and add pictures (like this one of Gus). Note that if you want to point to images without adding a code block, you should save your master markdown file in the project root directory (the same folder that has the .Rproj file).
 
 ![](Images/gus_exam_proctor.jpg)
 
-### 2 - Lists
+
+If you add a code block, you can tweak the images more carefully and you can use `here()` to point to a folder of images.  For example:
+
+```{r img-knitr, echo=FALSE, fig.align='center', out.width='40%', fig.cap='Figure 1. A delightful dog named Gus'}
+knitr::include_graphics(here("Images", "gus_exam_proctor.jpg"))
+```
+
+
+### 3 - Lists
 To make a bulleted list, use dashes, like so:
 
 - list item 1
@@ -44,7 +65,7 @@ To make a numbered list, use numbers, like so:
 2. list item 2
 3. list item 3
 
-### 3 - Other tricks
+### 4 - Other tricks
 
 If you'd like to set something apart in the text to note that it is code, you can do so using backticks. For example, `mean()` and `sd()` are functions for determining location and range of a variable.
 
@@ -55,7 +76,9 @@ You can also create block-quotes to emphasize text. For example, if I want to ta
 There is much, much more information about using Markdown, including how to do things like add citations, footnotes, tables, etc. etc. Check out these resources to learn more:
 
 * [RMarkdown base page](https://rmarkdown.rstudio.com/) from the folks at [Posit](https://posit.co) (formerly RStudio)
+* [R Markdown: The definiative guide](https://bookdown.org/yihui/rmarkdown/)
 * Here's a [markdown tutorial](https://www.markdowntutorial.com/)
+* And here's a [R markdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
 ## Including Plots and Code
 You already know that you can embed code in your markdown document (really,the ability to do so is what makes is "R markdown") and, with code, you can therefore also embed plots. For example:
@@ -82,13 +105,30 @@ ggplot(DF, aes(x = diet, y = gain, color = supplement))+
      geom_point()+
      labs(x = "Diet", y = "Weight gain, percent")
 ```
+
 Code chunk two displays the code without the plot:
 
-```{r echo = T,results = 'hide'}
+```{r, fig.show = 'hide'}
 ggplot(DF, aes(x = diet, y = gain, color = supplement))+
      geom_point()+
      labs(x = "Diet", y = "Weight gain, percent")
 ```
+You can also control messages:
 
+Consider that you may not always want your "top of script" prep to display:
+
+Here's the "normal" scenario for when you're just focused on your code
+```{r}
+rm(list = ls())
+library(tidyverse)
+gus<-"A very good boy"
+```
+
+Case 2: Set up my script using exactly the same code as above but none of it will display.
+```{r, include = FALSE}
+rm(list=ls())
+library(tidyverse)
+gus<-"A very good boy"
+```
 
 
