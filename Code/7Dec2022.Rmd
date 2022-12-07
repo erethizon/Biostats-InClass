@@ -1,0 +1,162 @@
+---
+title: "Silly Stuff with R"
+author: "Erika Barthelmess"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(ggplot2)
+library(plotly)
+library(gtools)
+```
+
+## Happy Solstice!
+
+As you may know, December 21 is the shortest day of the year in the northern hemisphere and is called the [winter solstice](https://en.wikipedia.org/wiki/Winter_solstice).
+
+Let's celebrate the solstice with some R code!
+
+
+Follow through each of these sections to learn something new. 
+### 1. The diverging bar plot
+
+Create a data frame 
+```{r}
+#   - specify 2*n bars (but have only n unique values)
+#   - set divergence values (values at the same level should differ only in the sign)
+#   - set labels for different parts of the plot
+
+df <- data.frame("wish" = c("YS",  "YS", "IDA", "IDA", "HOL", "HOL",
+                            "PY", "PY", "HAP", "HAP"),
+                 "pos" = c(0.75, -0.75, 3.5, -3.5, 2.5, -2.5,
+                           1.5, -1.5, 0.3, -0.3),
+                 "part" = c(rep("bottom", 2), rep("tree", 6), rep("star", 2)))
+```
+
+Now get ready to plot
+```{r}
+# Convert wish to factor, specify levels to have the right order
+df$wish <- factor(df$wish, levels = c("YS", "IDA", "HOL", "PY", "HAP"))
+
+ggplot(df, aes(x = wish, y = pos, fill = part)) + geom_bar(stat="identity") +
+    coord_flip() +
+    theme_minimal() +
+    ylim(-5, 5) +
+    theme(legend.position = "none",
+          axis.title.x=element_blank(),
+          axis.text.x=element_blank(),
+          axis.ticks.x=element_blank()) +
+    scale_fill_manual(values = c("#643413", "#FDBA1C", "#1A8017")) +
+    geom_point(aes(x=3.7, y=0.5), colour="#CF140D", size=12) +
+    geom_point(aes(x=2.5, y=-1), colour="#393762", size=12) +
+    geom_point(aes(x=1.7, y=1.5), colour="#CF140D", size=12) +
+    geom_point(aes(x=2.8, y=2.5), colour="#393762", size=12) +
+    geom_point(aes(x=1.8, y=-2.8), colour="#CF140D", size=12)
+```
+2. The Dirichlet distrubtion
+
+```{r}
+library(gtools)
+
+set.seed(24) # seed, so our tree is reproducible!
+
+n_tree <- 7000
+n_ornaments <- 50
+
+# Sample for tree and ornaments
+#   - sample n_tree/n_ornaments points from the tree spiral
+#   - alpha = c(1, 1, 1) -> points are uniformly distributed
+#   - map values from R^3 to R^2
+dir_samples_tree <- rdirichlet(n_tree, c(1, 1, 1))
+df <- data.frame("x" = dir_samples_tree[, 2] - dir_samples_tree[, 3],
+                 "y" = dir_samples_tree[, 1],
+                 "size" = 1,
+                 "type" = "tree")
+
+dir_samples_ornaments <- rdirichlet(n_ornaments, c(1, 1, 1))
+df <- rbind(df, data.frame("x" = dir_samples_ornaments[, 2] - dir_samples_ornaments[, 3],
+                           "y" = dir_samples_ornaments[, 1],
+                           "size" = 2,
+                           "type" = "ornaments"))
+
+ggplot(df, aes(x=x, y=y, color = type)) +
+    geom_point(aes(size=size)) +
+    scale_color_manual(values = c("#CF140D", "#1A8017")) + # set colors
+    theme_void() + # remove axes, labels, ticks etc.
+    theme(legend.position = "none") + # remove legend
+    scale_size_continuous(range = c(1.5, 8)) + # set scale for points
+    ylim(0, 1.1) + xlim(-1.2, 1.2) +
+    annotate("text", x = 0, y = 1.1, label = "Happy Solstice!",
+             color = "#CF140D", size = 7,
+             family = "Palatino", fontface = "bold.italic") +
+    geom_text(aes(x=0, y=1), label="★", size=15, colour="#FDBA1C",
+              family = "HiraKakuPro-W3") # font that supports the character
+```
+
+
+```{r}
+library(plotly)
+
+set.seed(24)
+
+n_tree <- 1000
+n_ornaments <- 20
+n_lights <- 300
+
+# Generate spiral data points
+x <- c()
+y <- c()
+z <- c()
+
+for (i in 1:n_tree) {
+    r <- i / 30
+    x <- c(x, r * cos(i / 30))
+    y <- c(y, r * sin(i / 30))
+    z <- c(z, n_tree - i)
+}
+
+tree <- data.frame(x, y, z)
+
+# Sample for ornaments:
+#   - sample n_ornaments points from the tree spiral
+#   - modify z so that the ornaments are below the line
+#   - color column: optional, add if you want to add color range to ornaments
+ornaments <- tree[sample(nrow(tree), n_ornaments), ]
+ornaments$z <- ornaments$z - 50
+ornaments$color <- 1:nrow(ornaments)
+
+# Sample for lights:
+#   - sample n_lights points from the tree spiral
+#   - Add normal noise to z so the lights spread out
+lights <- tree[sample(nrow(tree), n_lights), ]
+lights$x <- lights$x + rnorm(n_lights, 0, 20)
+lights$y <- lights$y + rnorm(n_lights, 0, 20)
+lights$z <- lights$z + rnorm(n_lights, 0, 20)
+
+# hide axes
+ax <- list(
+    title = "",
+    zeroline = FALSE,
+    showline = FALSE,
+    showticklabels = FALSE,
+    showgrid = FALSE
+)
+
+plot_ly() %>%
+    add_trace(data = tree, x = ~x, y = ~y, z = ~z,
+              type = "scatter3d", mode = "lines",
+              line = list(color = "#1A8017", width = 7)) %>%
+    add_markers(data = ornaments, x = ~x, y = ~y, z = ~z,
+                type = "scatter3d",
+                marker = list(color = ~color,
+                              colorscale = list(c(0,'#EA4630'), c(1,'#CF140D')),
+                              size = 15)) %>%
+    add_markers(data = lights, x = ~x, y = ~y, z = ~z,
+                type = "scatter3d",
+                marker = list(color = "#FDBA1C", size = 3, opacity = 0.8)) %>%
+    layout(scene = list(xaxis=ax, yaxis=ax, zaxis=ax), showlegend = FALSE)
+```
+The idea for this project has been modified from [this web page](https://towardsdatascience.com/christmas-cards-81e7e1cce21c).
